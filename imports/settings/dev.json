@@ -1,0 +1,28 @@
+{
+    "public": {
+        "facebook": {
+            "loginStyle": "redirect",
+            "requestPermissions": [
+                "public_profile",
+                "email"
+            ],
+            "redirectUrl": "http://localhost:4000/on-auth?provider=facebook"
+        },
+        "google": {
+            "loginStyle": "redirect",
+            "requestPermissions": [
+                "profile",
+                "email"
+            ],
+            "redirectUrl": "http://localhost:4000/on-auth?provider=google"
+        }
+    },
+    "facebook": {
+        "appId": "307971816760701",
+        "secret": "e1bba6b9ce7c9462d3db5d3ba389c3d4"
+    },
+    "google": {
+        "clientId": "57238486741-ubjqlefecv69i82ajnh0u1ndollb2lbe.apps.googleusercontent.com",
+        "secret": "uwv3L9dXFwZKdQTcqgT2JOAR"
+    }
+}

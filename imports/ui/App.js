@@ -1,7 +1,13 @@
 import React from 'react';
+import FacebookAuthButton from './components/externalAuthButtons/FacebookAuthButton';
+import GoogleAuthButton from './components/externalAuthButtons/GoogleAuthButton';
 
 const App = () => (
-    <h1>Zero</h1>
+    <div>
+        <h1>Zero</h1>
+        <FacebookAuthButton />
+        <GoogleAuthButton />
+    </div>
 );
 
 export default App;
