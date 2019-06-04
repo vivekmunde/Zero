@@ -1,5 +1,5 @@
 {
-  "name": "Zero",
+  "name": "zero",
   "private": true,
   "scripts": {
     "start": "export MONGO_URL=mongodb://127.0.0.1:27017/zero; meteor run --port 4000 --settings ./imports/settings/dev.json"
@@ -10,5 +10,6 @@
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-  }
+  },
+  "devDependencies": {}
 }

@@ -3,11 +3,12 @@ import React from 'react';
 
 const GoogleAuthButton = () => (
     <button
+        className="ui google plus button"
         onClick={() => {
             Meteor.loginWithGoogle({
                 requestPermissions: Meteor.settings.public.google.requestPermissions,
-                redirectUrl: Meteor.settings.public.facebook.redirectUrl,
-                loginStyle: Meteor.settings.public.facebook.loginStyle,
+                redirectUrl: Meteor.settings.public.google.redirectUrl,
+                loginStyle: Meteor.settings.public.google.loginStyle,
             }, (err) => {
                 if (err) {
                     console.log(err);
@@ -17,8 +18,9 @@ const GoogleAuthButton = () => (
             });
         }}
     >
+        <i className="google plus icon" />
         Google Auth
-        </button>
+    </button>
 );
 
 export default GoogleAuthButton;
