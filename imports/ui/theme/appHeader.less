@@ -1,0 +1,15 @@
+@import './variables.less';
+@import './appHeader.variables.less';
+
+.z-app-header {
+    height         : @appHeaderHeight;
+    border-bottom  : solid 1px @borderColor;
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items    : center;
+
+    img.z-app-logo {
+        max-height: @appHeaderHeight;
+    }
+}
