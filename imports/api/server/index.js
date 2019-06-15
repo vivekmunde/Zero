@@ -1,1 +1,1 @@
-import './hooks/Accounts.onCreateUser';
+import './hooks/accounts-on-create-user';
