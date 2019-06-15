@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 
-const FacebookAuthButton = () => (
+const FacebookAuthButton = ({ className }) => (
     <button
-        className="z-button z-button_facebook z-button_attached-icon z-button_attached-icon_left"
+        className={`z-button z-button_facebook z-button_attached-icon z-button_attached-icon_left ${className}`}
         onClick={() => {
             Meteor.loginWithFacebook({
                 requestPermissions: Meteor.settings.public.facebook.requestPermissions,
@@ -21,7 +21,7 @@ const FacebookAuthButton = () => (
         <span className="z-button_icon-container">
             <i className="fab fa-facebook-f z-button_icon" />
         </span>
-        Facebook Auth
+        Facebook
     </button>
 );
 

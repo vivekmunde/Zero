@@ -1,10 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import AppHeader from './components/app-header';
+import SignUpPage from './pages/sign-up';
+import DefaultPage from './pages/default';
 
 const Routes = (props) => (
     <React.Fragment>
-        <Route {...props} path="/" component={AppHeader} />
+        <Route {...props} exact path="/" component={DefaultPage} />
+        <Route {...props} path="/sign-up" component={SignUpPage} />
     </React.Fragment>
 );
 

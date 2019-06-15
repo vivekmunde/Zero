@@ -2,14 +2,45 @@
 @import './app-header-variables.less';
 
 .z-app-header {
-    height         : @appHeaderHeight;
-    border-bottom  : solid 1px @borderColor;
-    display        : flex;
-    flex-direction : row;
-    justify-content: center;
-    align-items    : center;
+    height       : @appHeaderHeight;
+    border-bottom: solid 1px @borderColor;
+    margin-bottom: @baseMargin;
+
+    .z-container {
+        height : @appHeaderHeight;
+    }
+
+    .z-app-header_sections {
+        display        : flex;
+        flex-direction : row;
+        justify-content: center;
+        align-items    : center;
+        height         : 100%;
+
+        .z-app-header_section {
+            display        : flex;
+            flex-direction : row;
+            justify-content: center;
+            align-items    : center;
+            height         : 100%;
+
+            >* {
+                display        : flex;
+                flex-direction : row;
+                justify-content: center;
+                align-items    : center;
+                height         : 100%;
+            }
+
+            &.z-app-header_section_spacer {
+                flex: 1;
+            }
+
+            &.z-app-header_section_user-menu {}
+        }
+    }
 
     img.z-app-logo {
-        max-height: @appHeaderHeight;
+        max-height: @appHeaderHeight - 20px;
     }
 }

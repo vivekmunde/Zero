@@ -17,7 +17,7 @@
 
 .z-button {
     padding         : @buttonPaddingVertical @buttonPaddingHorizontal;
-    font-size       : @fontSize - 0.2;
+    font-size       : @buttonFontSize;
     border          : none;
     border-radius   : @borderRadius;
     background-color: @whiteColor;
@@ -36,32 +36,12 @@
         font-size: @buttonLargeFontSize;
     }
 
-    &.z-button_huge {
-        font-size: @buttonHugeFontSize;
-    }
-
     &.z-button_primary {
         .buttonTheme(@primaryColor, @primaryColor, @whiteColor);
     }
 
     &.z-button_secondary {
         .buttonTheme(@secondaryColor, @secondaryColor, @whiteColor);
-    }
-
-    &.z-button_blue {
-        .buttonTheme(@blueColor, @blueColor, @whiteColor);
-    }
-
-    &.z-button_teal {
-        .buttonTheme(@tealColor, @tealColor, @whiteColor);
-    }
-
-    &.z-button_red {
-        .buttonTheme(@redColor, @redColor, @whiteColor);
-    }
-
-    &.z-button_green {
-        .buttonTheme(@greenColor, @greenColor, @whiteColor);
     }
 
     &.z-button_google {
@@ -86,10 +66,12 @@
         .z-button_icon-container {
             padding   : @buttonPaddingVertical @buttonPaddingHorizontal;
             background: rgba(0, 0, 0, 0.1);
+            width     : 1em;
         }
 
         &.z-button_attached-icon_left {
             .z-button_icon-container {
+                float        : left;
                 margin       : -@buttonPaddingVertical @buttonPaddingHorizontal -@buttonPaddingVertical -@buttonPaddingHorizontal;
                 border-radius: @borderRadius 0 0 @borderRadius;
             }
@@ -97,6 +79,7 @@
 
         &.z-button_attached-icon_right {
             .z-button_icon-container {
+                float        : right;
                 margin       : -@buttonPaddingVertical -@buttonPaddingHorizontal -@buttonPaddingVertical @buttonPaddingHorizontal;
                 border-radius: 0 @borderRadius @borderRadius 0;
             }
@@ -110,11 +93,23 @@
         margin: 0 0 0 @buttonGroupBaseButtonMargin;
     }
 
-    &.z-button-group_inline-buttons {
+    &.z-button-group_horizontal-buttons {
         margin: 0 0 -@buttonGroupBaseButtonMargin 0;
 
         .z-button {
             margin-bottom: @buttonGroupBaseButtonMargin;
+        }
+    }
+
+    &.z-button-group_vertical-buttons {
+        .z-button {
+            display: block;
+            margin : 0 0 @buttonGroupBaseButtonMargin 0;
+            width  : 100%;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 

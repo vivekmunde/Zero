@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 
-const GoogleAuthButton = () => (
+const GoogleAuthButton = ({ className }) => (
     <button
-        className="z-button z-button_google z-button_attached-icon z-button_attached-icon_right"
+        className={`z-button z-button_google z-button_attached-icon z-button_attached-icon_left ${className}`}
         onClick={() => {
             Meteor.loginWithGoogle({
                 requestPermissions: Meteor.settings.public.google.requestPermissions,
@@ -18,10 +18,10 @@ const GoogleAuthButton = () => (
             });
         }}
     >
-        Google Auth
         <span className="z-button_icon-container">
             <i className="fab fa-google z-button_icon" />
         </span>
+        Google
     </button>
 );
 
