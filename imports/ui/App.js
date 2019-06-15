@@ -1,7 +1,7 @@
 import React from 'react';
-import AppHeader from './components/AppHeader';
-import FacebookAuthButton from './components/externalAuthButtons/FacebookAuthButton';
-import GoogleAuthButton from './components/externalAuthButtons/GoogleAuthButton';
+import AppHeader from './components/app-header';
+import FacebookAuthButton from './components/auth-buttons/facebook-auth-button';
+import GoogleAuthButton from './components/auth-buttons/google-auth-button';
 
 const App = () => (
     <div>
