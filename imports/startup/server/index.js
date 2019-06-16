@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { configureSocialAuthServiceForFacebook } from './socialAuthServiceConfig';
+import './server-side-rendering';
+import configureSocialAuthService from './social-auth-service-config';
 
 Meteor.startup(() => {
-    configureSocialAuthServiceForFacebook();
+    configureSocialAuthService();
 });

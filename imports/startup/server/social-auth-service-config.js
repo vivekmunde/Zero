@@ -1,4 +1,4 @@
-const configureSocialAuthServiceForFacebook = () => {
+const configureSocialAuthService = () => {
     console.log('Configuring social auth service for Facebook');
     ServiceConfiguration.configurations.upsert({
         service: "facebook"
@@ -20,6 +20,4 @@ const configureSocialAuthServiceForFacebook = () => {
         });
 };
 
-export {
-    configureSocialAuthServiceForFacebook
-};
+export default configureSocialAuthService;
