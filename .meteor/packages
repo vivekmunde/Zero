@@ -16,8 +16,9 @@ standard-minifier-css
 es5-shim@4.8.0                # ECMAScript 5 compatibility for older browsers
 ecmascript@0.12.4              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.4.0            # Server-side component of the `meteor shell` command
+accounts-base
+service-configuration
 accounts-password
 accounts-google
 accounts-facebook
-service-configuration
 less

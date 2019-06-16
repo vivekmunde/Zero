@@ -1,13 +1,17 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SignUpPage from './pages/sign-up';
+import OnAuthPage from './pages/on-auth';
 import DefaultPage from './pages/default';
+import NotFoundPage from './pages/not-found';
 
 const Routes = (props) => (
-    <React.Fragment>
+    <Switch>
         <Route {...props} exact path="/" component={DefaultPage} />
         <Route {...props} path="/sign-up" component={SignUpPage} />
-    </React.Fragment>
+        <Route {...props} path="/on-auth" component={OnAuthPage} />
+        <Route {...props} component={NotFoundPage} />
+    </Switch>
 );
 
 export default Routes;

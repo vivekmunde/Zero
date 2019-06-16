@@ -4,8 +4,16 @@
     display       : flex;
     flex-direction: row;
 
-    &.z-flex-align_center {
-        justify-content: center;
-        align-items    : center;
+    >.z-flex-align_left {
+        margin-right: auto;
+    }
+
+    >.z-flex-align_right {
+        margin-left: auto;
+    }
+
+    >.z-flex-align_center {
+        margin-left : auto;
+        margin-right: auto;
     }
 }
