@@ -1,16 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import SignUpPage from './pages/sign-up';
-import OnAuthPage from './pages/on-auth';
-import DefaultPage from './pages/default';
-import NotFoundPage from './pages/not-found';
+import loadable from './components/loadable';
 
 const Routes = (props) => (
     <Switch>
-        <Route {...props} exact path="/" component={DefaultPage} />
-        <Route {...props} path="/sign-up" component={SignUpPage} />
-        <Route {...props} path="/on-auth" component={OnAuthPage} />
-        <Route {...props} component={NotFoundPage} />
+        <Route {...props} exact path="/" component={loadable({ loader: () => import('./pages/default') })} />
+        <Route {...props} path="/sign-up" component={loadable({ loader: () => import('./pages/sign-up') })} />
+        <Route {...props} path="/on-auth" component={loadable({ loader: () => import('./pages/on-auth') })} />
+        <Route {...props} component={loadable({ loader: () => import('./pages/not-found') })} />
     </Switch>
 );
 

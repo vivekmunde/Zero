@@ -7,8 +7,8 @@ import { getStore } from '../redux-store';
 const updateLoggedInUser = (loggedInUser) => ({
     type: 'updateLoggedInUser',
     updateState: () => ({
-        loggingIn: Meteor.loggingIn(),
-        loggedIn: !!loggedInUser,
+        isLoggingIn: Meteor.loggingIn(),
+        isLoggedIn: !!loggedInUser,
         loggedInUser,
     })
 });

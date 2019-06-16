@@ -7,9 +7,9 @@ import FacebookAuthButton from '../../components/auth-buttons/facebook-auth-butt
 import './index.less';
 
 const SignUpPage = (props) => {
-    const { location, loggedIn } = props;
+    const { location, isLoggedIn } = props;
 
-    if (loggedIn) {
+    if (isLoggedIn) {
         const query = new URLSearchParams(location.search);
         return <Redirect to={query.get('redirectUrl') || '/'} />;
     }
@@ -34,5 +34,5 @@ const SignUpPage = (props) => {
 };
 
 export default connect(
-    ({ loggedIn }) => ({ loggedIn })
+    ({ isLoggedIn }) => ({ isLoggedIn })
 )(withRouter(SignUpPage));

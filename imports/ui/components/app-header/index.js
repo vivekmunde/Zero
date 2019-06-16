@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Link from '../link';
 
 
-const AppHeader = () => (
+const AppHeader = ({ isLoggedIn }) => (
     <header className="z-app-header">
         <div className="z-container">
             <div className="z-app-header_sections">
@@ -15,15 +16,19 @@ const AppHeader = () => (
                 </div>
                 <div className="z-app-header_section z-app-header_section_spacer" />
                 <div className="z-app-header_section z-app-header_section_user-menu">
-                    <Link
-                        to="/sign-up"
-                    >
-                        <i className="fa fa-user" />
-                    </Link>
+                    {!isLoggedIn && (
+                        <Link
+                            to="/sign-up"
+                        >
+                            <i className="fa fa-user" />
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>
     </header>
 );
 
-export default AppHeader;
+export default connect(
+    ({ isLoggedIn }) => ({ isLoggedIn })
+)(AppHeader);

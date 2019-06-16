@@ -9,8 +9,9 @@ import './meteor-hooks/account';
 const App = (props) => (
     <Provider
         store={configureStore({
-            loggingIn: Meteor.loggingIn(),
-            loggedInUserId: Meteor.userId()
+            isLoggingIn: Meteor.loggingIn(),
+            isLoggedIn: !!Meteor.userId(),
+            loggedInUserId: Meteor.userId(),
         })}
     >
         <Router>
