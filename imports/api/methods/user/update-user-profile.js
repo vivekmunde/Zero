@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import UnauthorizedAccessError from '../../error/unauthoeized-access';
-import isNull from '../../check/isNull';
 import isUndefined from '../../check/isUndefined';
+import isNull from '../../check/isNull';
 import isObjectEmpty from '../../check/isObjectEmpty';
 import isString from '../../check/isString';
 import { isUserAdmin } from '../../check/isUserAdmin';

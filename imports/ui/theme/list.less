@@ -1,0 +1,42 @@
+@import './list-variables.less';
+
+.z-list {
+    padding   : 0;
+    margin    : 0;
+    list-style: none;
+
+    .z-list_item {
+        padding: @basePadding @basePadding 0 @basePadding;
+
+        &:last-child {
+            padding-bottom: @basePadding;
+        }
+
+        .z-list_item_icon {
+            &.z-list_item_icon_left {
+                margin-right: @baseMargin;
+            }
+
+            &.z-list_item_icon_right {
+                margin-right: @baseMargin;
+            }
+        }
+    }
+
+    &.z-list_divided {
+        .z-list_item {
+            padding-bottom: @basePadding;
+            border-bottom : 1px solid @borderColor;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    &.z-list_vertical {
+        .z-list_item {
+            display: block;
+        }
+    }
+}

@@ -8,7 +8,7 @@ const configureReducer = (initialState = {}) =>
         if (updateState) {
             return {
                 ...state,
-                ...action.updateState({ state, ...rest }),
+                ...action.updateState({ ...state, ...rest }),
             }
         }
         return state;

@@ -2,10 +2,10 @@
 // Media
 //-------------------------------------------------------
 
-@mobileBreakpoint            : 320px;
-@tabletBreakpoint            : 768px;
-@computerBreakpoint          : 992px;
-@largeMonitorBreakpoint      : 1200px;
+@mobileBreakpoint       : 320px;
+@tabletBreakpoint       : 768px;
+@computerBreakpoint     : 992px;
+@largeMonitorBreakpoint : 1200px;
 
 //-------------------------------------------------------
 // Font
@@ -19,8 +19,8 @@
 // Base
 //-------------------------------------------------------
 
-@basePadding: 10px;
-@baseMargin : 10px;
+@basePadding: 15px;
+@baseMargin : 15px;
 
 //-------------------------------------------------------
 // Colors
@@ -29,6 +29,7 @@
 @bodyBgColor: #fafafa;
 
 @whiteColor: #ffffff;
+@blackColor: #000000;
 @redColor  : #db2828;
 @greenColor: #21ba45;
 @blueColor : #007edc;
@@ -55,5 +56,15 @@
 // Border
 //-------------------------------------------------------
 
+@overlayBgColor: rgba(255, 255, 255, 0.5);
+
+//-------------------------------------------------------
+// Border
+//-------------------------------------------------------
+
 @borderRadius: 2px;
 @borderColor: #eaeaea;
+@borderColorOnBlackBg: lighten(@blackColor, 5%);
+@borderColorOnRedBg: lighten(@redColor, 5%);
+@borderColorOnGreenBg: lighten(@greenColor, 5%);
+@borderColorOnBlueBg: lighten(@blueColor, 5%);

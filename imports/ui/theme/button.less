@@ -16,13 +16,25 @@
 }
 
 .z-button {
-    padding         : @buttonPaddingVertical @buttonPaddingHorizontal;
-    font-size       : @buttonFontSize;
-    border          : none;
-    border-radius   : @borderRadius;
-    background-color: @whiteColor;
-    cursor          : pointer;
-    box-shadow      : @boxShadow;
+    cursor   : pointer;
+    font-size: @buttonFontSize;
+    border   : none;
+
+    &.z-button_bare {
+        padding         : 0;
+        margin          : 0;
+        border          : none;
+        border-radius   : 0;
+        box-shadow      : none;
+        background-color: transparent;
+    }
+
+    &:not(.z-button_bare) {
+        padding         : @buttonPaddingVertical @buttonPaddingHorizontal;
+        border-radius   : @borderRadius;
+        background-color: @whiteColor;
+        box-shadow      : @boxShadow;
+    }
 
     &.z-button_small {
         font-size: @buttonSmallFontSize;
