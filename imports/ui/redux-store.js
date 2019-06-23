@@ -3,7 +3,7 @@ import { createStore } from 'redux';
 let store = null;
 
 const configureReducer = (initialState = {}) =>
-    reducer = (state = initialState, action) => {
+    (state = initialState, action) => {
         const { updateState, ...rest } = action;
         if (updateState) {
             return {

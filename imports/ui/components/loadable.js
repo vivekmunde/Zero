@@ -2,8 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import reactLoadable from 'react-loadable';
 
-const Loading = () => null;
-
 const ErrorMessage = ({ error }) => {
     console.error(error);
 
@@ -16,12 +14,14 @@ const ErrorMessage = ({ error }) => {
     );
 };
 
+const Loading = ({ error }) => (
+    error
+        ? <ErrorMessage error={error} />
+        : null
+);
+
 const loadable = (args) => reactLoadable({
-    loading: ({ error }) => (
-        error
-            ? <ErrorMessage error={error} />
-            : <Loading />
-    ),
+    loading: Loading,
     ...args,
 });
 
