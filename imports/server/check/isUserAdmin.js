@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import isUndefined from './isUndefined';
-import isNull from './isNull';
+import isUndefined from '/imports/check/isUndefined';
+import isNull from '/imports/check/isNull';
 
 const isUserAdmin = (userId) => {
     if (isUndefined(userId) || isNull(userId)) {

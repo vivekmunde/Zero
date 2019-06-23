@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import toggleUserMenuReduxAction from './toggle-user-menu-redux-action';
-import Link from '../../link';
+import Link from '/imports/ui/components/link';
+import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-redux-action';
 
 const SidebarUserMenu = ({
     loggedInUser,

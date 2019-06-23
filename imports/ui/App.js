@@ -9,6 +9,7 @@ import './meteor-hooks/account';
 const App = (props) => (
     <Provider
         store={configureStore({
+            ...(window.__PRELOADED_STATE__ || {}),
             isLoggingIn: Meteor.loggingIn(),
             isLoggedIn: !!Meteor.userId(),
             loggedInUserId: Meteor.userId(),

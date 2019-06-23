@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom'
-import AppLayout from '../components/app-layout';
-import Helmet from '../components/helmet';
-import GoogleAuthButton from '../components/auth-buttons/google-auth-button';
-import FacebookAuthButton from '../components/auth-buttons/facebook-auth-button';
+import AppLayout from '/imports/ui/components/app-layout';
+import Helmet from '/imports/ui/components/helmet';
+import GoogleAuthButton from '/imports/ui/components/auth-buttons/google-auth-button';
+import FacebookAuthButton from '/imports/ui/components/auth-buttons/facebook-auth-button';
 
 const SignUpPage = (props) => {
     const { location, isLoggedIn } = props;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import DefaultPage from '../../ui/pages/default';
-import SignUpPage from '../../ui/pages/sign-up';
-import OnAuthPage from '../../ui/pages/on-auth';
-import UserProfilePage from '../../ui/pages/user-profile';
-import NotFoundPage from '../../ui/pages/not-found';
+import DefaultPage from '/imports/ui/pages/default';
+import SignUpPage from '/imports/ui/pages/sign-up';
+import OnAuthPage from '/imports/ui/pages/on-auth';
+import UserProfilePage from '/imports/ui/pages/user-profile';
+import NotFoundPage from '/imports/ui/pages/not-found';
 
 const Routes = (props) => (
     <Switch>

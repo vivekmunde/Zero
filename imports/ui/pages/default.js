@@ -1,6 +1,6 @@
 import React from 'react';
-import AppLayout from '../components/app-layout';
-import Helmet from '../components/helmet';
+import AppLayout from '/imports/ui/components/app-layout';
+import Helmet from '/imports/ui/components/helmet';
 
 const DefaultPage = () => (
     <AppLayout>

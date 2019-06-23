@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Link from '../link';
-import UserMenu from './user-menu';
-import SidebarUserMenu from './user-menu/sidebar-user-menu';
+import Link from '/imports/ui/components/link';
+import UserMenu from '/imports/ui/components/app-header/user-menu';
+import SidebarUserMenu from '/imports/ui/components/app-header/user-menu/sidebar-user-menu';
 
 const AppHeader = ({ isLoggedIn }) => (
     <React.Fragment>

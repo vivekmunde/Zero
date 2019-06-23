@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { getStore } from '../../redux-store';
+import { getStore } from '/imports/ui/redux-store';
 
 const getUserProfileReduxAction = (userId) => getStore()
     .dispatch({

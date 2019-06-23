@@ -1,5 +1,5 @@
 import React from 'react';
-import AppLayout from '../components/app-layout';
+import AppLayout from '/imports/ui/components/app-layout';
 
 const NotFoundPage = () => (
     <AppLayout>

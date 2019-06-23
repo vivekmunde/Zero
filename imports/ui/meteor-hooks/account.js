@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 import { Accounts } from 'meteor/accounts-base';
-import { getStore } from '../redux-store';
+import { getStore } from '/imports/ui/redux-store';
 
 
 const updateLoggedInUser = (loggedInUser) => ({

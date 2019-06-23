@@ -1,4 +1,4 @@
-import { getStore } from '../../../redux-store';
+import { getStore } from '/imports/ui/redux-store';
 
 const toggleUserMenuReduxAction = () => getStore().dispatch({
     type: 'toggleUserMenuReduxAction',
