@@ -12,6 +12,7 @@ import {
     StyledMenuListLeftIcon,
     StyledSidebarCloseButton
 } from './styled';
+import ToggleThemeButton from './toggle-theme-button';
 
 const SidebarUserMenu = ({
     loggedInUser,
@@ -48,6 +49,7 @@ const SidebarUserMenu = ({
                             <StyledMenuListLeftIcon className="far fa-user" />
                             My profile
                         </StyledMenuListItem>
+                        <ToggleThemeButton />
                     </StyledMenuList>
                 </StyledSidebar>
             </React.Fragment>

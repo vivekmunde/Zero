@@ -8,7 +8,7 @@ const overlay = styled.div`${({ theme, styled = {} }) => {
         left            : 0;
         right           : 0;
         bottom          : 0;
-        background-color: ${theme.isDark ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)'};
+        background-color: ${theme.isDark ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.25)'};
         display         : ${active ? 'block' : 'none'}
     `;
 }}`;

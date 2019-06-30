@@ -1,11 +1,26 @@
 import styled from 'styled-components';
-import borderColorOnDarkBackground from '/imports/ui/styled/utils/border-color-on-dark-background';
 import { StyledList as StyledMenuList, StyledDividedListItem as StyledMenuListItem } from '/imports/ui/styled/list';
 import { StyledLeftIcon as StyledMenuListLeftIcon } from '/imports/ui/styled/icon';
-import StyledSidebarCloseButton from '/imports/ui/styled/button/bare';
+import StyledBareButton from '/imports/ui/styled/button/bare';
+
+const StyledSidebarCloseButton = styled(StyledBareButton)`${({ theme }) => {
+    const {
+        base: { padding: basePadding, margin: baseMargin },
+        font: { color: fontColor }
+    } = theme;
+    return `
+        padding: ${basePadding};
+        margin : -${baseMargin} -${baseMargin} -${baseMargin} ${baseMargin};
+        color  : ${fontColor};
+    `;
+}}`;
 
 const StyledSidebar = styled.div`${({ theme, styled = {} }) => {
-    const { base: { padding: basePadding, margin: baseMargin }, colors: { primary: primaryColor } } = theme;
+    const {
+        border: { color: borderColor },
+        font: { color: fontColor, size: fontSize },
+        section: { bgColor: sectionBgColor }
+    } = theme;
     const { active } = styled;
     return `
         position        : fixed;
@@ -14,21 +29,18 @@ const StyledSidebar = styled.div`${({ theme, styled = {} }) => {
         bottom          : 0;
         width           : ${active ? '90%' : '0'};
         max-width       : 300px;
-        background-color: ${primaryColor};
-        color           : #fff;
+        background-color: ${sectionBgColor};
+        border-left     : 1px solid ${borderColor};
         transition      : right 0.2s, width 0.2s;
-
-        ${StyledSidebarCloseButton} {
-            padding: ${basePadding};
-            margin : -${baseMargin} -${baseMargin} -${baseMargin} ${baseMargin};
-            color  : #fff;
-        }
+        box-sizing      : border-box;
 
         ${StyledMenuList} {
             ${StyledMenuListItem} {
-                color           : #fff;
-                border-color    : ${borderColorOnDarkBackground({ color: primaryColor })};
-                text-decoration : none;
+                color          : ${fontColor};
+                font-size      : ${fontSize};
+                text-decoration: none;
+                text-align     : left;
+                width          : 100%;
             
                 &:hover,
                 &:active {
@@ -36,7 +48,7 @@ const StyledSidebar = styled.div`${({ theme, styled = {} }) => {
                 }
             
                 ${StyledMenuListLeftIcon} {
-                    color: #fff;
+                    color: ${fontColor};
                 }
             }
         }
