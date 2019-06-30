@@ -6,31 +6,22 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
-    "autoprefixer": "^9.6.0",
     "bcrypt": "^3.0.6",
     "meteor-node-stubs": "^0.4.1",
+    "polished": "^3.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
+    "babel-plugin-styled-components": "^1.10.4",
     "eslint": "^6.0.0",
-    "eslint-plugin-react": "^7.13.0",
-    "postcss": "^6.0.23",
-    "postcss-load-config": "^1.2.0"
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {
-        "overrideBrowserslist": [
-          "last 2 versions"
-        ]
-      }
-    }
+    "eslint-plugin-react": "^7.13.0"
   }
 }

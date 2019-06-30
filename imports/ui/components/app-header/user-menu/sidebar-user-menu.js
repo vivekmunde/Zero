@@ -2,49 +2,58 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Link from '/imports/ui/components/link';
 import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-redux-action';
+import StyledOverlay from '/imports/ui/styled/overlay';
+import { StyledIcon } from '/imports/ui/styled/icon';
+import { StyledFlexAlign, StyledFlexAlignLeft, StyledFlexAlignRight } from '/imports/ui/styled/align';
+import {
+    StyledSidebar,
+    StyledMenuList,
+    StyledMenuListItem,
+    StyledMenuListLeftIcon,
+    StyledSidebarCloseButton
+} from './styled';
 
 const SidebarUserMenu = ({
     loggedInUser,
     sidebarUserMenuOpen,
-}) => (loggedInUser
-    ? (
-        <React.Fragment>
-            <div
-                className={`z-sidebar-user-menu_overlay ${sidebarUserMenuOpen ? 'z-sidebar-user-menu_overlay_active' : ''}`}
-                onClick={toggleUserMenuReduxAction}
-            />
-            <div
-                className={`z-sidebar-user-menu ${sidebarUserMenuOpen ? 'z-sidebar-user-menu_active' : ''}`}
-            >
-                <div className="z-list z-list_divided z-list_vertical z-sidebar-user-menu_list">
-                    <div className="z-list_item">
-                        <div className="z-flex-align">
-                            <div className="z-flex-align_left">
-                                Account Info
-                            </div>
-                            <div className="z-flex-align_right">
-                                <button
-                                    className="z-button z-button_bare z-sidebar-user-menu_button-close"
-                                    onClick={toggleUserMenuReduxAction}
-                                >
-                                    <i className="fa fa-times" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <Link
-                        className="z-list_item z-sidebar-user-menu_item"
-                        to={`/users/${loggedInUser._id}/profile`}
-                        onClick={toggleUserMenuReduxAction}
-                    >
-                        <i className="far fa-user z-icon z-list_item_icon z-list_item_icon_left" />
-                        My profile
-                    </Link>
-                </div>
-            </div>
-        </React.Fragment>
-    )
-    : null);
+}) => {
+    return (loggedInUser
+        ? (
+            <React.Fragment>
+                <StyledOverlay
+                    styled={{ active: sidebarUserMenuOpen }}
+                    onClick={toggleUserMenuReduxAction}
+                />
+                <StyledSidebar styled={{ active: sidebarUserMenuOpen }}>
+                    <StyledMenuList>
+                        <StyledMenuListItem>
+                            <StyledFlexAlign>
+                                <StyledFlexAlignLeft>
+                                    Account Info
+                                </StyledFlexAlignLeft>
+                                <StyledFlexAlignRight>
+                                    <StyledSidebarCloseButton
+                                        onClick={toggleUserMenuReduxAction}
+                                    >
+                                        <StyledIcon className="fa fa-times" />
+                                    </StyledSidebarCloseButton>
+                                </StyledFlexAlignRight>
+                            </StyledFlexAlign>
+                        </StyledMenuListItem>
+                        <StyledMenuListItem
+                            as={Link}
+                            to={`/users/${loggedInUser._id}/profile`}
+                            onClick={toggleUserMenuReduxAction}
+                        >
+                            <StyledMenuListLeftIcon className="far fa-user" />
+                            My profile
+                        </StyledMenuListItem>
+                    </StyledMenuList>
+                </StyledSidebar>
+            </React.Fragment>
+        )
+        : null);
+};
 
 export default connect(
     ({

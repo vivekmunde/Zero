@@ -1,9 +1,23 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
+import styled from 'styled-components';
+import {
+    StyledAttachedIconButton,
+    StyledLeftAttachedIconContainer
+} from '/imports/ui/styled/button/attached-icon-button';
 
-const FacebookAuthButton = ({ className }) => (
-    <button
-        className={`z-button z-button_facebook z-button_attached-icon z-button_attached-icon_left ${className}`}
+const StyledFacebookAuthButton = styled(StyledAttachedIconButton).attrs(({ theme, styled }) => ({
+    styled: {
+        bgColor: theme.colors.facebook,
+        color: '#fff',
+        ...styled
+    }
+}))``;
+
+const FacebookAuthButton = ({ styled, style }) => (
+    <StyledFacebookAuthButton
+        styled={styled}
+        style={style}
         onClick={() => {
             Meteor.loginWithFacebook({
                 requestPermissions: Meteor.settings.public.facebook.requestPermissions,
@@ -18,11 +32,11 @@ const FacebookAuthButton = ({ className }) => (
             });
         }}
     >
-        <span className="z-button_icon-container">
-            <i className="fab fa-facebook-f z-button_icon" />
-        </span>
+        <StyledLeftAttachedIconContainer>
+            <i className="fab fa-facebook-f" />
+        </StyledLeftAttachedIconContainer>
         Facebook
-    </button>
+    </StyledFacebookAuthButton>
 );
 
 export default FacebookAuthButton;

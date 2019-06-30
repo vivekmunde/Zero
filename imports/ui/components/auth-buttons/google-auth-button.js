@@ -1,9 +1,23 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
+import styled from 'styled-components';
+import {
+    StyledAttachedIconButton,
+    StyledLeftAttachedIconContainer
+} from '/imports/ui/styled/button/attached-icon-button';
 
-const GoogleAuthButton = ({ className }) => (
-    <button
-        className={`z-button z-button_google z-button_attached-icon z-button_attached-icon_left ${className}`}
+const StyledGoogleAuthButton = styled(StyledAttachedIconButton).attrs(({ theme, styled }) => ({
+    styled: {
+        bgColor: theme.colors.google,
+        color: '#fff',
+        ...styled
+    },
+}))``;
+
+const GoogleAuthButton = ({ styled, style }) => (
+    <StyledGoogleAuthButton
+        styled={styled}
+        style={style}
         onClick={() => {
             Meteor.loginWithGoogle({
                 requestPermissions: Meteor.settings.public.google.requestPermissions,
@@ -18,11 +32,11 @@ const GoogleAuthButton = ({ className }) => (
             });
         }}
     >
-        <span className="z-button_icon-container">
-            <i className="fab fa-google z-button_icon" />
-        </span>
         Google
-    </button>
+        <StyledLeftAttachedIconContainer>
+            <i className="fab fa-google" />
+        </StyledLeftAttachedIconContainer>
+    </StyledGoogleAuthButton>
 );
 
 export default GoogleAuthButton;

@@ -1,13 +1,14 @@
 import React from 'react';
+import { StyledIcon } from '/imports/ui/styled/icon';
 import toggleUserMenuReduxAction from './toggle-user-menu-redux-action';
+import { StyledHeaderButton } from '../styled';
 
 const UserMenuToggler = () => (
-    <button
-        className="z-button z-button_bare"
+    <StyledHeaderButton
         onClick={toggleUserMenuReduxAction}
     >
-        <i className="fa fa-user z-icon" />
-    </button>
+        <StyledIcon className="far fa-user" />
+    </StyledHeaderButton>
 );
 
 export default UserMenuToggler;

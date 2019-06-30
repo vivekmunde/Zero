@@ -1,36 +1,51 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Link from '/imports/ui/components/link';
+import StyledContainer from '/imports/ui/styled/container'
+import { StyledIcon } from '/imports/ui/styled/icon';
 import UserMenu from '/imports/ui/components/app-header/user-menu';
 import SidebarUserMenu from '/imports/ui/components/app-header/user-menu/sidebar-user-menu';
+import {
+    StyledHeader,
+    StyledHeaderSections,
+    StyledHeaderSection,
+    StyledHeaderLogo,
+    StyledHeaderLink
+} from './styled';
 
 const AppHeader = ({ isLoggedIn }) => (
     <React.Fragment>
-        <header className="z-app-header">
-            <div className="z-container">
-                <div className="z-app-header_sections">
-                    <div className="z-app-header_section">
-                        <Link
+        <StyledHeader>
+            <StyledContainer>
+                <StyledHeaderSections>
+                    <StyledHeaderSection>
+                        <StyledHeaderLink
                             to="/"
                         >
-                            <img src="/images/logo.png" alt="Zero" className="z-app-logo" />
-                        </Link>
-                    </div>
-                    <div className="z-app-header_section z-app-header_section_spacer" />
-                    <div className="z-app-header_section z-app-header_section_user-menu">
+                            <StyledHeaderLogo src="/images/logo.png" alt="Zero" />
+                        </StyledHeaderLink>
+                    </StyledHeaderSection>
+                    <StyledHeaderSection styled={{ isSpacer: true }} />
+                    <StyledHeaderSection>
+                        <StyledHeaderLink
+                            to="/"
+                        >
+                            <StyledIcon className="fa fa-home" />
+                        </StyledHeaderLink>
+                    </StyledHeaderSection>
+                    <StyledHeaderSection>
                         {isLoggedIn
                             ? <UserMenu />
                             : (
-                                <Link
+                                <StyledHeaderLink
                                     to="/sign-up"
                                 >
-                                    <i className="fa fa-user" />
-                                </Link>
+                                    <StyledIcon className="far fa-user" />
+                                </StyledHeaderLink>
                             )}
-                    </div>
-                </div>
-            </div>
-        </header>
+                    </StyledHeaderSection>
+                </StyledHeaderSections>
+            </StyledContainer>
+        </StyledHeader>
         <SidebarUserMenu />
     </React.Fragment>
 );
