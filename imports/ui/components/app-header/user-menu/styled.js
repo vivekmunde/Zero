@@ -32,7 +32,6 @@ const StyledSidebar = styled.div`${({ theme, styled = {} }) => {
         background-color: ${sectionBgColor};
         border-left     : 1px solid ${borderColor};
         transition      : right 0.2s, width 0.2s;
-        box-sizing      : border-box;
 
         ${StyledMenuList} {
             ${StyledMenuListItem} {

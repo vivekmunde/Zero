@@ -4,7 +4,6 @@ const StyledContainer = styled.div`
     padding   : 0 ${props => props.theme.base.padding};
     width     : 100%;
     margin    : 0 auto;
-    box-sizing: border-box;
     max-width : ${props => props.theme.breakpoint.tablet};
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.computer}) {

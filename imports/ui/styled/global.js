@@ -4,8 +4,9 @@ import StyledGlobalTypography from './global-typography';
 
 const StyledGlobal = createGlobalStyle`
     * {
-        padding: 0;
-        margin : 0;
+        padding   : 0;
+        margin    : 0;
+        box-sizing: border-box;
     }
 
     body {
