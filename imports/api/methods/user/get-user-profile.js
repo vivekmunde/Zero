@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import isUndefined from '/imports/check/isUndefined';
-import isNull from '/imports/check/isNull';
+import isUndefined from '/imports/check/is-undefined';
+import isNull from '/imports/check/is-null';
 
 new ValidatedMethod({
     name: 'get-user-profile',

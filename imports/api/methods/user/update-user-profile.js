@@ -1,11 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import UnauthorizedAccessError from '/imports/api/error/unauthoeized-access';
-import isUndefined from '/imports/check/isUndefined';
-import isNull from '/imports/check/isNull';
-import isObjectEmpty from '/imports/check/isObjectEmpty';
-import isString from '/imports/check/isString';
-import { isUserAdmin } from '/imports/server/check/isUserAdmin';
+import isUndefined from '/imports/check/is-undefined';
+import isNull from '/imports/check/is-null';
+import isObjectEmpty from '/imports/check/is-object-empty';
+import isString from '/imports/check/is-string';
+import { isUserAdmin } from '/imports/server/check/is-user-admin';
 
 new ValidatedMethod({
     name: 'update-user-profile',
