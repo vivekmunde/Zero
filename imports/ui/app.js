@@ -14,6 +14,7 @@ const App = (props) => (
             isLoggingIn: Meteor.loggingIn(),
             isLoggedIn: !!Meteor.userId(),
             loggedInUserId: Meteor.userId(),
+            loggedInUser: Meteor.user(),
         })}
     >
         <ThemeProvider>
