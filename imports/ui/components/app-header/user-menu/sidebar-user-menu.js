@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import Link from '/imports/ui/components/link';
 import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-redux-action';
 import StyledOverlay from '/imports/ui/styled/overlay';
-import { StyledIcon } from '/imports/ui/styled/icon';
+import { StyledIcon, StyledLeftIcon } from '/imports/ui/styled/icon';
 import { StyledFlexAlign, StyledFlexAlignLeft, StyledFlexAlignRight } from '/imports/ui/styled/align';
 import {
     StyledSidebar,
     StyledMenuList,
     StyledMenuListItem,
-    StyledMenuListLeftIcon,
     StyledSidebarCloseButton
 } from './styled';
 import ToggleThemeButton from './toggle-theme-button';
@@ -46,7 +45,7 @@ const SidebarUserMenu = ({
                             to={`/users/${loggedInUser._id}/profile`}
                             onClick={toggleUserMenuReduxAction}
                         >
-                            <StyledMenuListLeftIcon className="far fa-user" />
+                            <StyledLeftIcon className="far fa-user" />
                             My profile
                         </StyledMenuListItem>
                         <ToggleThemeButton />

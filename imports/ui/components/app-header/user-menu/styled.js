@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { StyledList as StyledMenuList, StyledDividedListItem as StyledMenuListItem } from '/imports/ui/styled/list';
-import { StyledLeftIcon as StyledMenuListLeftIcon } from '/imports/ui/styled/icon';
+import { StyledIcon } from '/imports/ui/styled/icon';
 import StyledBareButton from '/imports/ui/styled/button/bare';
 
 const StyledSidebarCloseButton = styled(StyledBareButton)`${({ theme }) => {
@@ -46,7 +46,7 @@ const StyledSidebar = styled.div`${({ theme, styled = {} }) => {
                     text-decoration : none;
                 }
             
-                ${StyledMenuListLeftIcon} {
+                ${StyledIcon} {
                     color: ${fontColor};
                 }
             }
@@ -58,6 +58,5 @@ export {
     StyledSidebar,
     StyledMenuList,
     StyledMenuListItem,
-    StyledMenuListLeftIcon,
     StyledSidebarCloseButton
 };
