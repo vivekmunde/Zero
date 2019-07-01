@@ -5,6 +5,7 @@ import isUndefined from '/imports/check/is-undefined';
 import isNull from '/imports/check/is-null';
 import isObjectEmpty from '/imports/check/is-object-empty';
 import isString from '/imports/check/is-string';
+import isBoolean from '/imports/check/is-boolean';
 import { isUserAdmin } from '/imports/server/check/is-user-admin';
 
 new ValidatedMethod({
@@ -20,7 +21,7 @@ new ValidatedMethod({
             });
         }
 
-        const { _id, name } = userDetails;
+        const { _id, name, isDarkTheme } = userDetails;
 
         if (isUndefined(_id) || isNull(_id)) {
             throw new Meteor.Error({
@@ -37,14 +38,24 @@ new ValidatedMethod({
                 name: 'Name must be a string',
             });
         }
+
+        if (!isUndefined(isDarkTheme) && !isNull(isDarkTheme) && !isBoolean(isDarkTheme)) {
+            throw new Meteor.Error({
+                name: 'Theme must be a boolean',
+            });
+        }
     },
     run(userDetails) {
-        const { _id, name } = userDetails;
+        const { _id, name, isDarkTheme } = userDetails;
 
         const $setValues = {};
 
         if (!isUndefined(name) && !isNull(name)) {
             $setValues['profile.name'] = name;
+        }
+
+        if (!isUndefined(isDarkTheme) && !isNull(isDarkTheme)) {
+            $setValues['profile.isDarkTheme'] = isDarkTheme;
         }
 
         if (!isObjectEmpty($setValues)) {

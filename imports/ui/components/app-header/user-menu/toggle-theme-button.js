@@ -10,12 +10,14 @@ import { StyledMenuListItem } from './styled';
 class ToggleThemeButton extends React.Component {
 
     toggleTheme = () => {
-        toggleThemeReduxAction();
+        const { loggedInUser } = this.props;
+        const { _id: userId, profile: { isDarkTheme } } = loggedInUser;
+        toggleThemeReduxAction({ userId: userId, isDarkTheme });
         toggleUserMenuReduxAction();
     }
 
     render() {
-        const { isDarkTheme } = this.props;
+        const { loggedInUser = { profile: {} } } = this.props;
         return (
             <StyledMenuListItem
                 as={StyledBareButton}
@@ -27,7 +29,7 @@ class ToggleThemeButton extends React.Component {
                         Dark Mode
                     </StyledFlexAlignLeft>
                     <StyledFlexAlignRight>
-                        <StyledIcon className={`fa fa-toggle-${isDarkTheme ? 'on' : 'off'}`} />
+                        <StyledIcon className={`fa fa-toggle-${loggedInUser.profile.isDarkTheme ? 'on' : 'off'}`} />
                     </StyledFlexAlignRight>
                 </StyledFlexAlign>
             </StyledMenuListItem>
@@ -37,5 +39,5 @@ class ToggleThemeButton extends React.Component {
 }
 
 export default connect(
-    ({ isDarkTheme }) => ({ isDarkTheme })
+    ({ loggedInUser }) => ({ loggedInUser })
 )(ToggleThemeButton);

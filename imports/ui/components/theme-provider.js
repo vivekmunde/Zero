@@ -4,8 +4,8 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import styledTheme from '/imports/ui/styled/theme';
 import StyledGlobal from '/imports/ui/styled/global';
 
-const ThemeProvider = ({ isDarkTheme, children }) => (
-    <StyledThemeProvider theme={styledTheme({ isDark: !!isDarkTheme })}>
+const ThemeProvider = ({ loggedInUser, children }) => (
+    <StyledThemeProvider theme={styledTheme({ isDark: !!((loggedInUser || {}).profile || {}).isDarkTheme })}>
         <React.Fragment>
             <StyledGlobal />
             {children}
@@ -14,5 +14,5 @@ const ThemeProvider = ({ isDarkTheme, children }) => (
 );
 
 export default connect(
-    ({ isDarkTheme }) => ({ isDarkTheme })
+    ({ loggedInUser }) => ({ loggedInUser })
 )(ThemeProvider);
