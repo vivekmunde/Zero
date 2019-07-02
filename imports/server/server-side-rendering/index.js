@@ -24,7 +24,8 @@ onPageLoad((sink) => {
 
     sink.appendToBody(`
         <script>
-        window.__PRELOADED_STATE__ = ${JSON.stringify(store.getState()).replace(/</g, '\\u003c')}
+        window.__SSR__ = true;
+        window.__PRELOADED_STATE__ = ${JSON.stringify(store.getState()).replace(/</g, '\\u003c')};
         </script>
     `);
 });
