@@ -3,7 +3,7 @@ import { StyledFlexAlign, StyledFlexAlignLeft, StyledFlexAlignRight } from '/imp
 import { StyledMenuListItem } from './styled';
 import ToggleUserMenuButton from './toggle-user-menu-button';
 
-const SidebarUserMenuHeader = () => (
+const MenuHeader = () => (
     <StyledMenuListItem>
         <StyledFlexAlign>
             <StyledFlexAlignLeft>
@@ -16,4 +16,4 @@ const SidebarUserMenuHeader = () => (
     </StyledMenuListItem>
 );
 
-export default SidebarUserMenuHeader;
+export default MenuHeader;

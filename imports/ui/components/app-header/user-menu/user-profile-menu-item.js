@@ -4,7 +4,7 @@ import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-me
 import { StyledLeftIcon } from '/imports/ui/styled/icon';
 import { StyledMenuListItem } from './styled';
 
-const UserProfileMenuLink = ({ loggedInUser }) => (
+const UserProfileMenuItem = ({ loggedInUser }) => (
     <StyledMenuListItem
         as={Link}
         to={`/users/${loggedInUser._id}/profile`}
@@ -15,4 +15,4 @@ const UserProfileMenuLink = ({ loggedInUser }) => (
     </StyledMenuListItem>
 );
 
-export default UserProfileMenuLink;
+export default UserProfileMenuItem;

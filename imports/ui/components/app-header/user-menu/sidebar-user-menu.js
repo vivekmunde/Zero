@@ -6,9 +6,10 @@ import {
     StyledSidebar,
     StyledMenuList
 } from './styled';
-import SidebarUserMenuHeader from './sidebar-user-menu-header';
-import ToggleThemeButton from './toggle-theme-button';
-import UserProfileMenuLink from './user-profile-menu-link';
+import MenuHeader from './menu-header';
+import ToggleThemeButton from './toggle-theme-menu-item';
+import UserProfileMenuLink from './user-profile-menu-item';
+import LogoutMenuButton from './logout-menu-item';
 
 const SidebarUserMenu = ({
     loggedInUser,
@@ -23,9 +24,10 @@ const SidebarUserMenu = ({
                 />
                 <StyledSidebar styled={{ active: sidebarUserMenuOpen }}>
                     <StyledMenuList>
-                        <SidebarUserMenuHeader />
+                        <MenuHeader />
                         <UserProfileMenuLink loggedInUser={loggedInUser} />
                         <ToggleThemeButton loggedInUser={loggedInUser} />
+                        <LogoutMenuButton />
                     </StyledMenuList>
                 </StyledSidebar>
             </React.Fragment>

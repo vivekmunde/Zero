@@ -6,7 +6,7 @@ import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-me
 import toggleThemeReduxAction from '/imports/ui/components/app-header/user-menu/toggle-theme-redux-action';
 import { StyledMenuListItem } from './styled';
 
-class ToggleThemeButton extends React.Component {
+class ToggleThemeMenuItem extends React.Component {
 
     toggleTheme = () => {
         const { loggedInUser } = this.props;
@@ -28,7 +28,7 @@ class ToggleThemeButton extends React.Component {
                         Dark Mode
                     </StyledFlexAlignLeft>
                     <StyledFlexAlignRight>
-                        <StyledIcon className={`fa fa-toggle-${loggedInUser.profile.isDarkTheme ? 'on' : 'off'}`} />
+                        {loggedInUser.profile.isDarkTheme ? 'ON' : 'OFF'}
                     </StyledFlexAlignRight>
                 </StyledFlexAlign>
             </StyledMenuListItem>
@@ -37,4 +37,4 @@ class ToggleThemeButton extends React.Component {
 
 }
 
-export default ToggleThemeButton;
+export default ToggleThemeMenuItem;
