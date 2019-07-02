@@ -5,9 +5,10 @@ import { padding } from './constants';
 const { vertical: verticalPadding, horizontal: horizontalPadding } = padding;
 
 const StyledAttachedIconContainer = styled.span`
-    padding         : ${verticalPadding} ${horizontalPadding};
-    background      : rgba(0, 0, 0, 0.1);
-    width           : 1em;
+    padding   : ${verticalPadding} ${horizontalPadding};
+    background: rgba(0, 0, 0, 0.1);
+    width     : 1em;
+    box-sizing: content-box;
 `;
 
 const StyledLeftAttachedIconContainer = styled(StyledAttachedIconContainer)`${({ theme }) => {

@@ -1,4 +1,5 @@
 import { lighten, darken } from "polished";
+import borderColorOnDarkBackground from "./utils/border-color-on-dark-background";
 
 const colors = {
     blue: '#007edc',
@@ -33,7 +34,7 @@ const darkTheme = {
         bgColor: lighten('0.05', darkThemeBaseBgColor)
     },
     border: {
-        color: lighten('0.1', darkThemeBaseBgColor)
+        color: borderColorOnDarkBackground({ color: darkThemeBaseBgColor })
     },
     font: {
         color: lighten('0.7', darkThemeBaseBgColor),
