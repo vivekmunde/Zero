@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import StyledBareButton from '/imports/ui/styled/button/bare';
 import { StyledFlexAlign, StyledFlexAlignLeft, StyledFlexAlignRight } from '/imports/ui/styled/align';
 import { StyledIcon, StyledLeftIcon } from '/imports/ui/styled/icon';
@@ -17,7 +16,7 @@ class ToggleThemeButton extends React.Component {
     }
 
     render() {
-        const { loggedInUser = { profile: {} } } = this.props;
+        const { loggedInUser } = this.props;
         return (
             <StyledMenuListItem
                 as={StyledBareButton}
@@ -38,6 +37,4 @@ class ToggleThemeButton extends React.Component {
 
 }
 
-export default connect(
-    ({ loggedInUser }) => ({ loggedInUser })
-)(ToggleThemeButton);
+export default ToggleThemeButton;

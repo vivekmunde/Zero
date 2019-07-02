@@ -1,17 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Link from '/imports/ui/components/link';
 import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-redux-action';
 import StyledOverlay from '/imports/ui/styled/overlay';
-import { StyledIcon, StyledLeftIcon } from '/imports/ui/styled/icon';
-import { StyledFlexAlign, StyledFlexAlignLeft, StyledFlexAlignRight } from '/imports/ui/styled/align';
 import {
     StyledSidebar,
-    StyledMenuList,
-    StyledMenuListItem,
-    StyledSidebarCloseButton
+    StyledMenuList
 } from './styled';
+import SidebarUserMenuHeader from './sidebar-user-menu-header';
 import ToggleThemeButton from './toggle-theme-button';
+import UserProfileMenuLink from './user-profile-menu-link';
 
 const SidebarUserMenu = ({
     loggedInUser,
@@ -26,29 +23,9 @@ const SidebarUserMenu = ({
                 />
                 <StyledSidebar styled={{ active: sidebarUserMenuOpen }}>
                     <StyledMenuList>
-                        <StyledMenuListItem>
-                            <StyledFlexAlign>
-                                <StyledFlexAlignLeft>
-                                    Account Info
-                                </StyledFlexAlignLeft>
-                                <StyledFlexAlignRight>
-                                    <StyledSidebarCloseButton
-                                        onClick={toggleUserMenuReduxAction}
-                                    >
-                                        <StyledIcon className="fa fa-times" />
-                                    </StyledSidebarCloseButton>
-                                </StyledFlexAlignRight>
-                            </StyledFlexAlign>
-                        </StyledMenuListItem>
-                        <StyledMenuListItem
-                            as={Link}
-                            to={`/users/${loggedInUser._id}/profile`}
-                            onClick={toggleUserMenuReduxAction}
-                        >
-                            <StyledLeftIcon className="far fa-user" />
-                            My profile
-                        </StyledMenuListItem>
-                        <ToggleThemeButton />
+                        <SidebarUserMenuHeader />
+                        <UserProfileMenuLink loggedInUser={loggedInUser} />
+                        <ToggleThemeButton loggedInUser={loggedInUser} />
                     </StyledMenuList>
                 </StyledSidebar>
             </React.Fragment>
