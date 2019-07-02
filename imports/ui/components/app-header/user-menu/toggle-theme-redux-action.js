@@ -15,10 +15,16 @@ const toggleThemeReduxAction = ({ userId, isDarkTheme }) => getStore()
                     if (!error) {
                         getStore()
                             .dispatch({
-                                type: 'toggleThemeReduxAction',
-                                updateState: () => {
+                                type: 'updateThemeReduxAction',
+                                updateState: ({ loggedInUser }) => {
                                     return {
-                                        isDarkTheme: !isDarkTheme,
+                                        loggedInUser: {
+                                            ...loggedInUser,
+                                            profile: {
+                                                ...loggedInUser.profile,
+                                                isDarkTheme: !isDarkTheme
+                                            }
+                                        },
                                     };
                                 }
                             });
