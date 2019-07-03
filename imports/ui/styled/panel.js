@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
+import { darken, math } from 'polished';
 
 const StyledPanelHeader = styled.div`${({ theme }) => {
     const { base: { padding } } = theme;
     return `
-        padding: ${padding};
+        padding: ${math(`${padding}/1.5`)};
     `;
 }}`;
 
 const StyledPanelBody = styled.div`${({ theme }) => {
     const { base: { padding } } = theme;
     return `
-        padding: ${padding};
+        padding: ${math(`${padding}/1.5`)};
     `;
 }}`;
 

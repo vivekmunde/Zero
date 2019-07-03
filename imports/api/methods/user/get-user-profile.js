@@ -1,12 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import isUndefined from '/imports/check/is-undefined';
-import isNull from '/imports/check/is-null';
+import isUndefinedOrNull from '/imports/check/is-undefined-or-null';
 
 new ValidatedMethod({
     name: 'get-user-profile',
     validate(userId) {
-        if (isUndefined(userId) || isNull(userId)) {
+        if (isUndefinedOrNull(userId)) {
             throw new Meteor.Error({
                 message: 'UserId is required',
             });

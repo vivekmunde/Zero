@@ -1,8 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import UnauthorizedAccessError from '/imports/api/error/unauthoeized-access';
-import isUndefined from '/imports/check/is-undefined';
-import isNull from '/imports/check/is-null';
+import isUndefinedOrNull from '/imports/check/is-undefined-or-null';
 import isObjectEmpty from '/imports/check/is-object-empty';
 import isString from '/imports/check/is-string';
 import isBoolean from '/imports/check/is-boolean';
@@ -23,7 +22,7 @@ new ValidatedMethod({
 
         const { _id, name, isDarkTheme } = userDetails;
 
-        if (isUndefined(_id) || isNull(_id)) {
+        if (isUndefinedOrNull(_id)) {
             throw new Meteor.Error({
                 message: 'User id missing',
             });
@@ -33,13 +32,13 @@ new ValidatedMethod({
             throw UnauthorizedAccessError;
         }
 
-        if (!isUndefined(name) && !isNull(name) && !isString(name)) {
+        if (!isUndefinedOrNull(name) && !isString(name)) {
             throw new Meteor.Error({
                 name: 'Name must be a string',
             });
         }
 
-        if (!isUndefined(isDarkTheme) && !isNull(isDarkTheme) && !isBoolean(isDarkTheme)) {
+        if (!isUndefinedOrNull(isDarkTheme) && !isBoolean(isDarkTheme)) {
             throw new Meteor.Error({
                 name: 'Theme must be a boolean',
             });
@@ -50,11 +49,11 @@ new ValidatedMethod({
 
         const $setValues = {};
 
-        if (!isUndefined(name) && !isNull(name)) {
+        if (!isUndefinedOrNull(name)) {
             $setValues['profile.name'] = name;
         }
 
-        if (!isUndefined(isDarkTheme) && !isNull(isDarkTheme)) {
+        if (!isUndefinedOrNull(isDarkTheme)) {
             $setValues['profile.isDarkTheme'] = isDarkTheme;
         }
 
