@@ -5,7 +5,8 @@ import isUndefinedOrNull from '/imports/check/is-undefined-or-null';
 import isObjectEmpty from '/imports/check/is-object-empty';
 import isString from '/imports/check/is-string';
 import isBoolean from '/imports/check/is-boolean';
-import { isUserAdmin } from '/imports/server/check/is-user-admin';
+import isAuthorized from '/imports/server/check/is-authorized';
+import { updateUserProfile } from '/imports/server/authorizations';
 
 new ValidatedMethod({
     name: 'update-user-profile',
@@ -22,13 +23,7 @@ new ValidatedMethod({
 
         const { _id, name, isDarkTheme } = userDetails;
 
-        if (isUndefinedOrNull(_id)) {
-            throw new Meteor.Error({
-                message: 'User id missing',
-            });
-        }
-
-        if (_id !== this.userId && !isUserAdmin(this.userId)) {
+        if (_id !== this.userId && !isAuthorized({ userId: this.userId, authorization: updateUserProfile })) {
             throw UnauthorizedAccessError;
         }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import getUserProfileReduxAction from './get-user-profile-redux-action';
+import getUserProfileReduxAction from '/imports/ui/redux-actions/get-user-profile-redux-action';
 import resetUserProfileReduxAction from './reset-user-profile-redux-action';
 
 class UserProfilePageContainer extends React.Component {

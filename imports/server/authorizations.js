@@ -1,0 +1,1 @@
+export const updateUserProfile = 'UPDATE_USER_PROFILE';
