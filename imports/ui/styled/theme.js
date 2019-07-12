@@ -72,6 +72,9 @@ export default ({ isDark } = {}) => {
         },
         colors: {
             primary: colors.blue,
+            error: '#db2828',
+            warning: '#ff893a',
+            success: '#21ba45',
             facebook: '#3b5998',
             google: '#dd4b39',
             twitter: '#55acee',

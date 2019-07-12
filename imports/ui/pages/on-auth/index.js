@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom'
+import { StyledTextAlignCenter } from '/imports/ui/styled/align';
+import { StyledOnAuthPage } from './styled';
 
 const OnAuthPage = (props) => {
     const { location, isLoggingIn, isLoggedIn } = props;
@@ -12,13 +14,11 @@ const OnAuthPage = (props) => {
 
     if (isLoggingIn) {
         return (
-            <div className="z-on-auth-page">
-                <div className="z-flex-align">
-                    <div className="z-flex-align_center">
-                        logging in ...
-                    </div>
-                </div>
-            </div>
+            <StyledOnAuthPage>
+                <StyledTextAlignCenter>
+                    logging in ...
+                </StyledTextAlignCenter>
+            </StyledOnAuthPage>
         );
     }
 
