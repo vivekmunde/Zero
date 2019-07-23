@@ -2,15 +2,18 @@ import isUndefinedOrNull from './is-undefined-or-null';
 import isFunction from './is-function';
 
 export default function createStore(preloadedState) {
-    let currentState = {};
-    let listeners = []
-    let isDispatching = false
+    let currentState = preloadedState || {};
+    let listeners = [];
+    let isDispatching = false;
 
-    if (isFunction(preloadedState)) {
-        currentState = preloadedState();
-    }
-    else {
-        currentState = preloadedState;
+    function getState() {
+        if (isDispatching) {
+            throw new Error(
+                'Cannot call getState() as the store is dispatching an action currently and the state is getting updated.'
+            );
+        }
+
+        return currentState;
     }
 
     function reducer(action) {
@@ -32,19 +35,9 @@ export default function createStore(preloadedState) {
         };
     }
 
-    function getState() {
-        if (isDispatching) {
-            throw new Error(
-                'Cannot call getState() as the store is dispatching an action currently and the state is getting updated.'
-            );
-        }
-
-        return currentState;
-    }
-
     function subscribe(listener) {
         if (!isFunction(listener)) {
-            throw new Error('Listener must to be a function.')
+            throw new Error('Listener must be a function.')
         }
 
         if (isDispatching) {
