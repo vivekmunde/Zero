@@ -1,18 +1,20 @@
 import React from 'react';
+import connectDispatch from '/imports/ui/duxact/connect-dispatch';
+import injectDispatch from '/imports/ui/duxact/inject-dispatch';
 import StyledBareButton from '/imports/ui/styled/button/bare';
 import { StyledFlexAlign, StyledFlexAlignLeft, StyledFlexAlignRight } from '/imports/ui/styled/align';
 import { StyledLeftIcon } from '/imports/ui/styled/icon';
-import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-redux-action';
-import toggleThemeReduxAction from '/imports/ui/components/app-header/user-menu/toggle-theme-redux-action';
+import toggleUserMenuDuxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-dux-action';
+import toggleThemeDuxAction from '/imports/ui/components/app-header/user-menu/toggle-theme-dux-action';
 import { StyledMenuListItem } from './styled';
 
 class ToggleThemeMenuItem extends React.Component {
 
     toggleTheme = () => {
-        const { loggedInUser } = this.props;
+        const { loggedInUser, toggleTheme, toggleUserMenu } = this.props;
         const { _id: userId, profile: { isDarkTheme } } = loggedInUser;
-        toggleThemeReduxAction({ userId: userId, isDarkTheme });
-        toggleUserMenuReduxAction();
+        toggleTheme({ userId: userId, isDarkTheme });
+        toggleUserMenu(null);
     }
 
     render() {
@@ -37,4 +39,9 @@ class ToggleThemeMenuItem extends React.Component {
 
 }
 
-export default ToggleThemeMenuItem;
+export default connectDispatch(
+    injectDispatch({
+        toggleTheme: toggleThemeDuxAction,
+        toggleUserMenu: toggleUserMenuDuxAction
+    })
+)(ToggleThemeMenuItem);

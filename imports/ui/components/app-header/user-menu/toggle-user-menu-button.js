@@ -1,14 +1,20 @@
 import React from 'react';
-import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-redux-action';
+import connectDispatch from '/imports/ui/duxact/connect-dispatch';
+import injectDispatch from '/imports/ui/duxact/inject-dispatch';
+import toggleUserMenuDuxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-dux-action';
 import { StyledIcon } from '/imports/ui/styled/icon';
 import { StyledSidebarCloseButton } from './styled';
 
-const ToggleUserMenuButton = () => (
+const ToggleUserMenuButton = ({ toggleUserMenu }) => (
     <StyledSidebarCloseButton
-        onClick={toggleUserMenuReduxAction}
+        onClick={toggleUserMenu}
     >
         <StyledIcon className="fa fa-times" />
     </StyledSidebarCloseButton>
 );
 
-export default ToggleUserMenuButton;
+export default connectDispatch(
+    injectDispatch({
+        toggleUserMenu: toggleUserMenuDuxAction
+    })
+)(ToggleUserMenuButton);

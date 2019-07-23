@@ -1,14 +1,18 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import loadable from './components/loadable';
+import DefaultPage from '/imports/ui/pages/default';
+import SignUpPage from '/imports/ui/pages/sign-up';
+import OnAuthPage from '/imports/ui/pages/on-auth';
+import UserProfilePage from '/imports/ui/pages/user-profile';
+import NotFoundPage from '/imports/ui/pages/not-found';
 
 const Routes = (props) => (
     <Switch>
-        <Route {...props} exact path="/" component={loadable({ loader: () => import('./pages/default') })} />
-        <Route {...props} path="/sign-up" component={loadable({ loader: () => import('./pages/sign-up') })} />
-        <Route {...props} path="/on-auth" component={loadable({ loader: () => import('./pages/on-auth') })} />
-        <Route {...props} path="/users/:userId/profile" component={loadable({ loader: () => import('./pages/user-profile') })} />
-        <Route {...props} component={loadable({ loader: () => import('./pages/not-found') })} />
+        <Route {...props} exact path="/" component={DefaultPage} />
+        <Route {...props} path="/sign-up" component={SignUpPage} />
+        <Route {...props} path="/on-auth" component={OnAuthPage} />
+        <Route {...props} path="/users/:userId/profile" component={UserProfilePage} />
+        <Route {...props} component={NotFoundPage} />
     </Switch>
 );
 

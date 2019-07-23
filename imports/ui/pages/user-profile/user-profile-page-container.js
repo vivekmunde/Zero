@@ -1,16 +1,18 @@
 import React from 'react';
-import getUserProfileReduxAction from '/imports/ui/redux-actions/get-user-profile-redux-action';
-import resetUserProfileReduxAction from './reset-user-profile-redux-action';
+import connectDispatch from '/imports/ui/duxact/connect-dispatch';
+import injectDispatch from '/imports/ui/duxact/inject-dispatch';
+import getUserProfileDuxAction from '/imports/ui/dux-actions/get-user-profile-dux-action';
+import resetUserProfileDuxAction from './reset-user-profile-dux-action';
 
 class UserProfilePageContainer extends React.Component {
 
     componentDidMount() {
-        const { match } = this.props;
-        getUserProfileReduxAction(match.params.userId);
+        const { match, getUserProfile } = this.props;
+        getUserProfile(match.params.userId);
     }
 
     componentWillUnmount() {
-        resetUserProfileReduxAction();
+        this.props.resetUserProfile();
     }
 
     render() {
@@ -20,4 +22,9 @@ class UserProfilePageContainer extends React.Component {
 
 }
 
-export default UserProfilePageContainer;
+export default connectDispatch(
+    injectDispatch({
+        getUserProfile: getUserProfileDuxAction,
+        resetUserProfile: resetUserProfileDuxAction
+    })
+)(UserProfilePageContainer);

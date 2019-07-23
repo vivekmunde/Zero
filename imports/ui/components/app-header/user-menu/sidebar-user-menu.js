@@ -1,6 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-redux-action';
+import connect from '/imports/ui/duxact/connect';
+import injectDispatch from '/imports/ui/duxact/inject-dispatch';
+import arrayToMapStateToProps from '/imports/ui/duxact/array-to-map-state-to-props';
+import toggleUserMenuDuxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-dux-action';
 import StyledOverlay from '/imports/ui/styled/overlay';
 import {
     StyledSidebar,
@@ -14,13 +16,14 @@ import LogoutMenuButton from './logout-menu-item';
 const SidebarUserMenu = ({
     loggedInUser,
     sidebarUserMenuOpen,
+    toggleUserMenu
 }) => {
     return (loggedInUser
         ? (
             <React.Fragment>
                 <StyledOverlay
                     styled={{ active: sidebarUserMenuOpen }}
-                    onClick={toggleUserMenuReduxAction}
+                    onClick={toggleUserMenu}
                 />
                 <StyledSidebar styled={{ active: sidebarUserMenuOpen }}>
                     <StyledMenuList>
@@ -36,11 +39,6 @@ const SidebarUserMenu = ({
 };
 
 export default connect(
-    ({
-        loggedInUser,
-        sidebarUserMenuOpen,
-    }) => ({
-        loggedInUser,
-        sidebarUserMenuOpen,
-    }),
+    arrayToMapStateToProps(['loggedInUser', 'sidebarUserMenuOpen']),
+    injectDispatch({ toggleUserMenu: toggleUserMenuDuxAction })
 )(SidebarUserMenu);

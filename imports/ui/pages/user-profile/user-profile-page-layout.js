@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import connectState from '/imports/ui/duxact/connect-state';
+import arrayToMapStateToProps from '/imports/ui/duxact/array-to-map-state-to-props';
 import AppLayout from '/imports/ui/components/app-layout';
 import { StyledPanel, StyledPanelBody } from '/imports/ui/styled/panel';
 
@@ -17,6 +18,4 @@ const UserProfilePageLayout = ({ userProfile }) => (
         : null
 );
 
-export default connect(
-    ({ userProfile }) => ({ userProfile })
-)(UserProfilePageLayout);
+export default connectState(arrayToMapStateToProps(['userProfile']))(UserProfilePageLayout);

@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import toggleUserMenuReduxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-redux-action';
+import connectDispatch from '/imports/ui/duxact/connect-dispatch';
+import injectDispatch from '/imports/ui/duxact/inject-dispatch';
+import toggleUserMenuDuxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-dux-action';
 import StyledBareButton from '/imports/ui/styled/button/bare';
 import { StyledLeftIcon } from '/imports/ui/styled/icon';
 import { StyledMenuListItem } from './styled';
@@ -9,7 +11,7 @@ class LogoutMenuItem extends React.Component {
 
     logout = () => {
         Meteor.logout();
-        toggleUserMenuReduxAction();
+        this.props.toggleUserMenu();
     }
 
     render() {
@@ -26,4 +28,8 @@ class LogoutMenuItem extends React.Component {
 
 }
 
-export default LogoutMenuItem;
+export default connectDispatch(
+    injectDispatch({
+        toggleUserMenu: toggleUserMenuDuxAction,
+    })
+)(LogoutMenuItem);

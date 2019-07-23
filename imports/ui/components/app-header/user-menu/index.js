@@ -1,14 +1,20 @@
 import React from 'react';
+import connectDispatch from '/imports/ui/duxact/connect-dispatch';
+import injectDispatch from '/imports/ui/duxact/inject-dispatch';
 import { StyledIcon } from '/imports/ui/styled/icon';
-import toggleUserMenuReduxAction from './toggle-user-menu-redux-action';
+import toggleUserMenuDuxAction from './toggle-user-menu-dux-action';
 import { StyledHeaderButton } from '../styled';
 
-const UserMenuToggler = () => (
+const UserMenuToggler = ({ toggleUserMenu }) => (
     <StyledHeaderButton
-        onClick={toggleUserMenuReduxAction}
+        onClick={toggleUserMenu}
     >
         <StyledIcon className="far fa-user" />
     </StyledHeaderButton>
 );
 
-export default UserMenuToggler;
+export default connectDispatch(
+    injectDispatch({
+        toggleUserMenu: toggleUserMenuDuxAction
+    })
+)(UserMenuToggler);

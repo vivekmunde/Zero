@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import connectState from '/imports/ui/duxact/connect-state';
 import styledTheme from '/imports/ui/styled/theme';
 import StyledGlobal from '/imports/ui/styled/global';
 
@@ -13,6 +13,6 @@ const ThemeProvider = ({ loggedInUser, children }) => (
     </StyledThemeProvider>
 );
 
-export default connect(
+export default connectState(
     ({ loggedInUser }) => ({ loggedInUser })
 )(ThemeProvider);

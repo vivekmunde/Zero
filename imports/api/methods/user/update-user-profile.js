@@ -22,8 +22,9 @@ new ValidatedMethod({
         }
 
         const { _id, name, isDarkTheme } = userDetails;
+        const isThisMe = _id === this.userId;
 
-        if (_id !== this.userId && !isAuthorized({ userId: this.userId, authorization: updateUserProfile })) {
+        if (!(isThisMe || isAuthorized({ userId: this.userId, authorization: updateUserProfile }))) {
             throw UnauthorizedAccessError;
         }
 

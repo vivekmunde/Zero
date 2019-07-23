@@ -1,23 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux'
-import { configureStore } from '/imports/ui/redux-store';
+import Provider from '/imports/ui/duxact/provider';
+import createStore from '/imports/ui/duxact/create-store';
 import Routes from '/imports/ui/routes';
-import '/imports/ui/meteor-hooks/account';
 import ThemeProvider from '/imports/ui/components/theme-provider';
-import loadLoggedInUserReduxAction from './load-logged-in-user-redux-action';
+import LoggedInUserLoader from '/imports/ui/components/logged-in-user-loader';
 
 class App extends React.Component {
-
-    componentDidMount() {
-        loadLoggedInUserReduxAction();
-    }
-
     render() {
         return (
             <Provider
-                store={configureStore(window.__PRELOADED_STATE__ || {})}
+                store={createStore(window.__PRELOADED_STATE__ || {})}
             >
+                <LoggedInUserLoader />
                 <ThemeProvider>
                     <Router>
                         <Routes {...this.props} />

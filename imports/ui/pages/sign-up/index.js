@@ -1,6 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom'
+import connectState from '/imports/ui/duxact/connect-state';
+import arrayToMapStateToProps from '/imports/ui/duxact/array-to-map-state-to-props';
 import AppLayout from '/imports/ui/components/app-layout';
 import Helmet from '/imports/ui/components/helmet';
 import { StyledVerticalAlignedButtons } from '/imports/ui/styled/button/aligned-buttons';
@@ -51,6 +52,4 @@ const SignUpPage = (props) => {
     );
 };
 
-export default connect(
-    ({ isLoggedIn }) => ({ isLoggedIn })
-)(withRouter(SignUpPage));
+export default connectState(arrayToMapStateToProps(['isLoggedIn']))(withRouter(SignUpPage));
