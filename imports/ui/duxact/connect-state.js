@@ -5,6 +5,8 @@ import StateContext from './state-context';
 
 const connect = mapStateToProps => Component => {
     class ConnectState extends React.Component {
+        static contextType = StateContext;
+
         constructor(props, context) {
             super(props, context);
             const { store } = context;
@@ -51,8 +53,6 @@ const connect = mapStateToProps => Component => {
             );
         }
     }
-
-    ConnectState.contextType = StateContext;
 
     return ConnectState;
 };

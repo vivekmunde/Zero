@@ -5,6 +5,8 @@ import StateContext from './state-context';
 
 const connect = mapDispatchToProps => Component => {
     class ConnectDispatch extends React.Component {
+        static contextType = StateContext;
+
         constructor(props, context) {
             super(props, context);
             const { store } = context;
@@ -34,8 +36,6 @@ const connect = mapDispatchToProps => Component => {
             );
         }
     }
-
-    ConnectDispatch.contextType = StateContext;
 
     return ConnectDispatch;
 };

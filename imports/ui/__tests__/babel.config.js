@@ -7,6 +7,10 @@ module.exports = {
                     "node": "current"
                 }
             }
-        ]
+        ],
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-class-properties"
     ]
 }

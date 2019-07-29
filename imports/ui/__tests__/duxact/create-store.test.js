@@ -22,6 +22,36 @@ describe('createStore()', () => {
         });
     });
 
+
+    describe('dispatch()', () => {
+        test('Should pass the current state to dispatcher', () => {
+            expect.hasAssertions();
+
+            const initialState = { some: 'value' };
+
+            const { dispatch } = createStore(initialState);
+
+            const dispatcher = jest.fn();
+            dispatcher.mockReturnValue(initialState);
+
+            dispatch(dispatcher);
+
+            expect(dispatcher).toHaveBeenCalledWith(initialState);
+        });
+
+        test('Should update the state', () => {
+            expect.hasAssertions();
+
+            const initialState = { one: 'initial', two: 'initial' };
+
+            const { getState, dispatch } = createStore(initialState);
+
+            dispatch(() => ({ two: 'changed' }));
+
+            expect(getState()).toEqual({ one: 'initial', two: 'changed' });
+        });
+    });
+
     test('Should call the subscribed listeners with updated state', () => {
         expect.hasAssertions();
 
@@ -42,7 +72,7 @@ describe('createStore()', () => {
         dispatch(() => newState);
     });
 
-    test('Should unscibscribe the subscribed listeners', () => {
+    test('Should unsubscribe the subscribed listeners', () => {
         expect.hasAssertions();
 
         const initialState = { some: 'value' };
