@@ -9,7 +9,7 @@ const connect = (mapStateToProps, mapDispatchToProps) =>
         }
 
         if (isUndefinedOrNull(mapDispatchToProps)) {
-            connectState(mapStateToProps)(Component);
+            return connectState(mapStateToProps)(Component);
         }
 
         return connectState(mapStateToProps)(connectDispatch(mapDispatchToProps)(Component));
