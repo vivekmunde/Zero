@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter, Redirect } from 'react-router-dom'
-import connectState from '/imports/ui/duxact/connect-state';
-import arrayToMapStateToProps from '/imports/ui/duxact/array-to-map-state-to-props';
+import { connectState, arrayToMapStateToProps } from 'duxact';
 import { StyledTextAlignCenter } from '/imports/ui/styled/align';
 import { StyledOnAuthPage } from './styled';
 

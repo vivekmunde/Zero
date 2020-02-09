@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticRouter } from 'react-router';
-import Provider from '/imports/ui/duxact/provider';
+import { Provider } from 'duxact';
 import Routes from '/imports/ui/routes';
 import ThemeProvider from '/imports/ui/components/theme-provider';
 

@@ -1,7 +1,5 @@
 import React from 'react';
-import connect from '/imports/ui/duxact/connect';
-import injectDispatch from '/imports/ui/duxact/inject-dispatch';
-import arrayToMapStateToProps from '/imports/ui/duxact/array-to-map-state-to-props';
+import { connect, injectDispatch, arrayToMapStateToProps } from 'duxact';
 import toggleUserMenuDuxAction from '/imports/ui/components/app-header/user-menu/toggle-user-menu-dux-action';
 import StyledOverlay from '/imports/ui/styled/overlay';
 import {

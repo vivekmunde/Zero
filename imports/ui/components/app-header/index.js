@@ -1,6 +1,5 @@
 import React from 'react';
-import connectState from '/imports/ui/duxact/connect-state';
-import arrayToMapStateToProps from '/imports/ui/duxact/array-to-map-state-to-props';
+import { connectState, arrayToMapStateToProps } from 'duxact';
 import StyledContainer from '/imports/ui/styled/container'
 import { StyledIcon } from '/imports/ui/styled/icon';
 import UserMenu from '/imports/ui/components/app-header/user-menu';

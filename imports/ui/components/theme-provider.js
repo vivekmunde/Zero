@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import connectState from '/imports/ui/duxact/connect-state';
+import { connectState } from 'duxact';
 import styledTheme from '/imports/ui/styled/theme';
 import StyledGlobal from '/imports/ui/styled/global';
 

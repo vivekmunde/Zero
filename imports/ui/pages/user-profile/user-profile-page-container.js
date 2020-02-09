@@ -1,6 +1,5 @@
 import React from 'react';
-import connectDispatch from '/imports/ui/duxact/connect-dispatch';
-import injectDispatch from '/imports/ui/duxact/inject-dispatch';
+import { connectDispatch, injectDispatch } from 'duxact';
 import getUserProfileDuxAction from '/imports/ui/dux-actions/get-user-profile-dux-action';
 import resetUserProfileDuxAction from './reset-user-profile-dux-action';
 

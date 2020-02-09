@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
-import connectDispatch from '/imports/ui/duxact/connect-dispatch';
+import { connectDispatch } from 'duxact';
 
 let updateLoddedInUser = () => { };
 Tracker.autorun((trackerComputation) => {

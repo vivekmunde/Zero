@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter, Redirect } from 'react-router-dom'
-import connectState from '/imports/ui/duxact/connect-state';
-import arrayToMapStateToProps from '/imports/ui/duxact/array-to-map-state-to-props';
+import { connectState, arrayToMapStateToProps } from 'duxact';
 import AppLayout from '/imports/ui/components/app-layout';
 import Helmet from '/imports/ui/components/helmet';
 import { StyledVerticalAlignedButtons } from '/imports/ui/styled/button/aligned-buttons';

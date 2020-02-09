@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { onPageLoad } from 'meteor/server-render';
 import { Helmet } from 'react-helmet';
 import { ServerStyleSheet } from 'styled-components'
-import createStore from '/imports/ui/duxact/create-store';
+import { createStore } from 'duxact';
 import App from '/imports/server/server-side-rendering/app';
 import fetch from '/imports/server/server-side-rendering/data-fetchers/fetch';
 
