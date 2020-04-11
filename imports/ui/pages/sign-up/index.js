@@ -11,7 +11,7 @@ import FacebookAuthButton from '/imports/ui/components/auth-buttons/facebook-aut
 import StyledSignupPage from './styled';
 
 const authButtonStyled = {
-    size: 'large'
+    size: 'medium'
 };
 
 const SignUpPage = (props) => {

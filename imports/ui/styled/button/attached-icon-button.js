@@ -1,18 +1,20 @@
 import styled from 'styled-components';
+import calculatePadding from './utils/calculate-padding';
 import StyledAttachedIconButton from './button';
-import { padding } from './constants';
 
-const { vertical: verticalPadding, horizontal: horizontalPadding } = padding;
-
-const StyledAttachedIconContainer = styled.span`
-    padding   : ${verticalPadding} ${horizontalPadding};
-    background: rgba(0, 0, 0, 0.1);
-    width     : 1em;
-    box-sizing: content-box;
-`;
+const StyledAttachedIconContainer = styled.span`${({ theme }) => {
+    const { vertical: verticalPadding, horizontal: horizontalPadding } = calculatePadding({ theme });
+    return `
+        padding   : ${verticalPadding} ${horizontalPadding};
+        background: rgba(0, 0, 0, 0.1);
+        width     : 1em;
+        box-sizing: content-box;
+    `;
+}}`;
 
 const StyledLeftAttachedIconContainer = styled(StyledAttachedIconContainer)`${({ theme }) => {
     const { border: { radius: borderRadius } } = theme;
+    const { vertical: verticalPadding, horizontal: horizontalPadding } = calculatePadding({ theme });
     return `
         float        : left;
         margin       : -${verticalPadding} ${horizontalPadding} -${verticalPadding} -${horizontalPadding};
@@ -22,6 +24,7 @@ const StyledLeftAttachedIconContainer = styled(StyledAttachedIconContainer)`${({
 
 const StyledRightAttachedIconContainer = styled(StyledAttachedIconContainer)`${({ theme }) => {
     const { border: { radius: borderRadius } } = theme;
+    const { vertical: verticalPadding, horizontal: horizontalPadding } = calculatePadding({ theme });
     return `
         float        : right;
         margin       : -${verticalPadding} -${horizontalPadding} -${verticalPadding} ${horizontalPadding};

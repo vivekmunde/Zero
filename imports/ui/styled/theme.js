@@ -1,68 +1,51 @@
-import { lighten, darken } from "polished";
-import borderColorOnDarkBackground from "./utils/border-color-on-dark-background";
+import themer from './utils/themer';
 
 const colors = {
     blue: '#007edc',
+    red: '#db2828',
+    orange: '#ff893a',
+    green: '#21ba45',
+    facebook: '#3b5998',
+    google: '#dd4b39',
+    twitter: '#55acee',
+    linkedIn: '#1f88be'
 };
 
-const brightThemeBaseBgColor = '#f8f8f8';
-const brightTheme = {
-    body: {
-        bgColor: brightThemeBaseBgColor
-    },
-    section: {
-        bgColor: lighten('0.05', brightThemeBaseBgColor)
-    },
+const defaultThemeConfiguration = {
+    baseColor: '#f8f8f8',
     border: {
-        color: darken('0.05', brightThemeBaseBgColor)
+        radius: '3px'
     },
     font: {
-        color: darken('0.6', brightThemeBaseBgColor),
-        lightColor: darken('0.3', brightThemeBaseBgColor)
-    },
-    boxShadow: {
-        color: darken('0.04', brightThemeBaseBgColor)
+        family: `Arial, Helvetica Neue, Helvetica, 'sans-serif'`,
+        size: '1rem'
     }
 };
 
-const darkThemeBaseBgColor = '#231f44';
-const darkTheme = {
-    body: {
-        bgColor: darkThemeBaseBgColor
-    },
-    section: {
-        bgColor: lighten('0.05', darkThemeBaseBgColor)
-    },
-    border: {
-        color: borderColorOnDarkBackground({ color: darkThemeBaseBgColor })
-    },
-    font: {
-        color: lighten('0.7', darkThemeBaseBgColor),
-        lightColor: lighten('0.5', darkThemeBaseBgColor)
-    },
-    boxShadow: {
-        color: darken('0.04', darkThemeBaseBgColor)
-    }
-};
+// const brightBgColor = '#f8f8f8';
+// const darkBgColor = '#231f44';
 
-export default ({ isDark } = {}) => {
-    const theme = isDark ? darkTheme : brightTheme;
+const configurTheme = (configuration, inverted) => {
+    const get = (it, from, fallback) => from[it] || fallback[it];
+    const bgColor = get('baseColor', configuration, defaultThemeConfiguration);
+    const border = get('border', configuration, defaultThemeConfiguration);
+    const font = get('font', configuration, defaultThemeConfiguration);
+
     return {
-        isDark,
         appHeader: {
             height: '50px'
         },
         base: {
-            boxShadow: `1px 1px 3px 0 ${theme.boxShadow.color}`,
-            margin: '0.9rem',
-            padding: '0.9rem'
+            boxShadow: `0 0 5px 1px ${themer.shadow.box.color({ bgColor }, inverted)}`,
+            margin: '0.8em',
+            padding: '0.8em'
         },
         body: {
-            bgColor: theme.body.bgColor
+            bgColor
         },
         border: {
-            color: theme.border.color,
-            radius: '2px',
+            color: themer.border.color({ bgColor }, inverted),
+            radius: border.radius,
         },
         breakpoint: {
             mobile: '320px',
@@ -70,26 +53,30 @@ export default ({ isDark } = {}) => {
             computer: '992px',
             large: '1200px'
         },
+        button: {
+            border: {
+                radius: border.radius,
+            }
+        },
         colors: {
+            ...colors,
             primary: colors.blue,
-            error: '#db2828',
-            warning: '#ff893a',
-            success: '#21ba45',
-            facebook: '#3b5998',
-            google: '#dd4b39',
-            twitter: '#55acee',
-            linkedIn: '#1f88be'
+            error: colors.red,
+            warning: colors.orange,
+            success: colors.green
         },
         font: {
-            family: `Arial, Helvetica Neue, Helvetica, 'sans-serif'`,
-            color: theme.font.color,
-            size: '1rem'
+            family: font.family,
+            color: themer.font.color({ bgColor }, inverted),
+            size: font.size
         },
         link: {
             color: colors.blue,
         },
         section: {
-            bgColor: theme.section.bgColor
+            bgColor: themer.section.bgColor({ bgColor })
         }
     };
 };
+
+export default configurTheme;

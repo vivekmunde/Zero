@@ -1,28 +1,28 @@
 import styled from 'styled-components';
-import { darken, math } from 'polished';
 
 const StyledPanelHeader = styled.div`${({ theme }) => {
     const { base: { padding } } = theme;
     return `
-        padding: ${math(`${padding}/1.5`)};
+        padding: ${padding};
     `;
 }}`;
 
 const StyledPanelBody = styled.div`${({ theme }) => {
     const { base: { padding } } = theme;
     return `
-        padding: ${math(`${padding}/1.5`)};
+        padding: ${padding};
     `;
 }}`;
 
 const StyledPanel = styled.div`${({ theme, styled = {} }) => {
-    const { border: { color: borderColor, radius: borderRadius }, section: { bgColor: sectionBgColor } } = theme;
+    const { border: { color: borderColor, radius: borderRadius }, section: { bgColor: sectionBgColor }, base: { boxShadow } } = theme;
     const { bgColor, color } = styled;
     return `
         background-color: ${bgColor || sectionBgColor};
         ${color ? `color: ${color}` : ''};
-        border          : 1px solid ${bgColor ? darken('0.05', bgColor) : borderColor};
+        border          : 1px solid ${bgColor ? theme.themer.border.color(bgColor) : borderColor};
         border-radius   : ${borderRadius};
+        box-shadow      : ${boxShadow};
 
         ${StyledPanelHeader}+${StyledPanelBody} {
             padding-top: 0;
