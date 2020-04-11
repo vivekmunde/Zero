@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import UnauthorizedAccessError from '/imports/api/error/unauthoeized-access';
+import UnauthorizedAccessError from '/imports/server/error-messages/unauthoeized-access';
 import isUndefinedOrNull from '/imports/check/is-undefined-or-null';
 import isObjectEmpty from '/imports/check/is-object-empty';
 import isString from '/imports/check/is-string';
